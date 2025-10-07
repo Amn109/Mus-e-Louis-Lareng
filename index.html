@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Musée Louis Lareng — Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" aria-hidden="true">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="#">Musée Louis Lareng</a>
+      <div class="links">
+        <a class="navlink active">Accueil</a>
+        <a class="navlink" href="galerie.html">Galerie</a>
+        <a class="navlink" href="biographie.html">Biographie</a>
+        <a class="navlink" href="chronologie.html">Chronologie</a>
+        <a class="navlink" href="archives.html">Archives</a>
+        <a class="navlink" href="medias.html">Médias</a>
+        <a class="navlink" href="temoignages.html">Témoignages</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero container-grid">
+    <section class="left-col">
+      <h1 class="site-title">LOUIS LARENG</h1>
+      <p class="subtitle">Histoire — œuvres — archives</p>
+      <div class="cta-row">
+        <button id="visitBtn" class="btn primary">VISITER</button>
+        <button id="learnBtn" class="btn ghost">EN SAVOIR +</button>
+      </div>
+      <p class="hint">Appuyez sur S pour passer</p>
+      <button id="enterBtn" class="btn enter" style="display:none;">ENTRER</button>
+    </section>
+
+    <section class="right-col">
+      <div id="canvasWrap">
+        <canvas id="sceneCanvas"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© Musée Louis Lareng</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
