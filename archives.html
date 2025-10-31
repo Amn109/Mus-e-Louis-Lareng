@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Archives — Musée Louis Lareng</title>
+  <meta name="description" content="Archives & articles — Musée Louis Lareng">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="archives.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <div class="controls" role="search" aria-label="Recherche et filtres">
+        <input id="searchInput" type="search" placeholder="Rechercher un mot-clé, titre ou année..." aria-label="Recherche dans les archives">
+        <select id="categorySelect" aria-label="Filtrer par catégorie">
+          <option value="all">Toutes catégories</option>
+        </select>
+        <button id="clearBtn" title="Réinitialiser filtres">Réinitialiser</button>
+        <button id="toggleViewBtn" title="Basculer liste / journal">Mode Journal</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section id="listView" class="newspaper-layout" aria-label="Liste des articles">
+      <div id="articles" class="articles" ></div>
+    </section>
+
+    <section id="bookView" class="book-wrap" aria-label="Journal" hidden>
+      <div class="book-controls">
+        <button id="prevPage" aria-label="Page précédente">← Précédent</button>
+        <div class="page-indicator" id="pageIndicator">1 / 1</div>
+        <button id="nextPage" aria-label="Page suivante">Suivant →</button>
+      </div>
+      <div class="book" id="book" aria-hidden="false" tabindex="0"></div>
+    </section>
+  </main>
+
+  <div id="articleModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+    <div class="modal-panel" role="document">
+      <button id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
+      <article class="article-full">
+        <h2 id="modalTitle"></h2>
+        <p class="meta"><span id="modalDate"></span> · <span id="modalCategory"></span></p>
+        <figure id="modalFigure" class="article-figure" aria-hidden="true"></figure>
+        <div id="modalContent" class="article-content"></div>
+      </article>
+    </div>
+  </div>
+
+  <script src="archives.js"></script>
+</body>
+</html>

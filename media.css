@@ -1,0 +1,53 @@
+:root{
+  --bg-dark: #071740;
+  --accent-deep: #0b4f79;
+  --panel: #0f1720;
+  --door-surface: #1f2933;
+  --door-frame: #111418;
+  --plaque: #111827;
+  --ivory: #f2eadf;
+  --red: #FF3033;
+  --ease: cubic-bezier(.2,.9,.3,1);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;overflow:hidden}
+body{
+  background: linear-gradient(180deg, #00142a, #003a72);
+  -webkit-font-smoothing:antialiased;
+  color:var(--ivory);
+}
+
+#canvasWrap{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.06));
+}
+canvas#sceneCanvas{width:100%;height:100%;display:block;outline:none}
+#sceneFallback{display:none;width:100%;height:100%;object-fit:cover}
+
+.video-modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.72);z-index:9999;padding:18px;
+}
+.video-modal[aria-hidden="false"]{display:flex}
+.video-panel{
+  position:relative;background:linear-gradient(180deg,#0b0b0c,#121416);border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.7);
+  max-width:1200px;width:100%;max-height:90vh;overflow:hidden;padding:10px;
+}
+.video-close{position:absolute;right:10px;top:10px;border:0;background:transparent;color:#fff;font-size:22px;cursor:pointer}
+#mediaPlayer{width:100%;height:calc(90vh - 40px);background:#000;display:block;border-radius:6px}
+
+.quote-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:99999;padding:18px;}
+.quote-modal[aria-hidden="false"]{display:flex}
+.quote-panel{position:relative;background:#fff;color:#021937;border-radius:10px;padding:26px;max-width:720px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.quote-close{position:absolute;right:12px;top:12px;border:0;background:transparent;font-size:20px;cursor:pointer}
+.quote-content{font-family:Playfair Display, serif;font-size:22px;line-height:1.35;color:#021937}
+
+.hint-floating{
+  position:fixed;left:16px;bottom:14px;background:rgba(17,24,35,0.6);color:#fff;padding:8px 12px;border-radius:8px;font-size:13px;z-index:2000;
+}
+
+@media (max-width:900px){
+  .video-panel{padding:8px}
+  #mediaPlayer{height:60vh}
+  .quote-panel{padding:16px}
+  .quote-content{font-size:18px}
+}

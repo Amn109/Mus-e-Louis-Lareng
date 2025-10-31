@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Témoignages — Livre d'or</title>
+  <meta name="description" content="Livre d'or interactif — laisser un témoignage" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="temoignages.css">
+</head>
+<body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+  <div id="ui" role="toolbar" aria-label="Contrôles livre">
+    <button id="prevBtn" aria-label="Page précédente">←</button>
+    <div id="indicator" aria-live="polite">0 / 0</div>
+    <button id="nextBtn" aria-label="Page suivante">→</button>
+  </div>
+
+  <div id="bookRoot" role="region" aria-label="Livre d'or — laisser un témoignage"></div>
+
+  <div class="hint">Écris ton témoignage puis clique <strong>Entrer</strong>. Flèche ← → ou swipe pour tourner.</div>
+
+  <template id="pageTemplate">
+    <article class="page" data-filled="false">
+      <form class="entryForm" aria-label="Formulaire témoignage">
+        <label class="visually-hidden">Votre témoignage</label>
+        <textarea name="text" class="entryText" rows="8" placeholder="Écris ici ton témoignage pour Louis Lareng..." required></textarea>
+        <div class="formRow">
+          <input type="text" name="author" class="author" placeholder="Ton prénom (optionnel)" />
+          <button type="submit" class="submitBtn">Entrer</button>
+        </div>
+      </form>
+
+      <div class="display" style="display:none" aria-hidden="true"></div>
+    </article>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="temoignages.js"></script>
+</body>
+</html>

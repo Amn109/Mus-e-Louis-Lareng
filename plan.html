@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plan — Musée Louis Lareng</title>
+  <meta name="description" content="Plan interactif — Musée Louis Lareng" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+  <div id="bgDecor" aria-hidden="true"></div>
+
+  <main id="planWrap" role="main" aria-label="Plan du musée — cliquez une salle pour y accéder">
+    <div id="planContainer" aria-hidden="false">
+      <svg id="museumPlan" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet"
+           role="img" aria-label="Plan du musée">
+        <rect x="80" y="60" width="1040" height="680" rx="18" ry="18"
+              fill="#e8f1f6" stroke="#d1e1ea" stroke-width="6"/>
+        <g opacity="0.98">
+          <rect id="room-1" class="room" x="120" y="110" width="280" height="220" rx="8" fill="#fff"/>
+          <text x="260" y="240" text-anchor="middle" class="room-label">Salle A</text>
+
+          <rect id="room-2" class="room" x="120" y="360" width="280" height="280" rx="8" fill="#fff"/>
+          <text x="260" y="500" text-anchor="middle" class="room-label">Salle B</text>
+
+          <rect id="room-3" class="room" x="430" y="110" width="340" height="530" rx="8" fill="#fff"/>
+          <text x="600" y="360" text-anchor="middle" class="room-label">Grande Salle</text>
+
+          <rect id="room-4" class="room" x="800" y="110" width="220" height="220" rx="8" fill="#fff"/>
+          <text x="910" y="240" text-anchor="middle" class="room-label">Salle C</text>
+
+          <rect id="room-5" class="room" x="800" y="360" width="220" height="280" rx="8" fill="#fff"/>
+          <text x="910" y="500" text-anchor="middle" class="room-label">Archives</text>
+
+          <rect id="room-6" class="room" x="430" y="660" width="340" height="120" rx="8" fill="#fff"/>
+          <text x="600" y="730" text-anchor="middle" class="room-label">Chronologie</text>
+
+          <rect x="430" y="20" width="340" height="60" rx="10" fill="#e1edf2"/>
+          <text x="600" y="58" text-anchor="middle" class="title">Musée Louis Lareng — Plan</text>
+        </g>
+
+        <rect class="hot" data-room="room-1" x="120" y="110" width="280" height="220" rx="8" fill="transparent"/>
+        <rect class="hot" data-room="room-2" x="120" y="360" width="280" height="280" rx="8" fill="transparent"/>
+        <rect class="hot" data-room="room-3" x="430" y="110" width="340" height="530" rx="8" fill="transparent"/>
+        <rect class="hot" data-room="room-4" x="800" y="110" width="220" height="220" rx="8" fill="transparent"/>
+        <rect class="hot" data-room="room-5" x="800" y="360" width="220" height="280" rx="8" fill="transparent"/>
+        <rect class="hot" data-room="room-6" x="430" y="660" width="340" height="120" rx="8" fill="transparent"/>
+      </svg>
+    </div>
+
+    <div id="roomPanel" role="dialog" aria-hidden="true" aria-label="Détails de la salle">
+      <div class="rp-inner">
+        <h3 id="rpTitle">Titre</h3>
+        <p id="rpDesc">Description courte de la salle.</p>
+        <div class="rp-actions">
+          <button id="rpOpen">Ouvrir la salle</button>
+          <button id="rpClose" class="ghost">Retour</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="help">Cliquez une salle pour zoomer • Échap pour revenir</div>
+  </main>
+
+  <script src="plan.js"></script>
+</body>
+</html>

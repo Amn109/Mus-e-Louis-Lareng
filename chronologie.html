@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Musée Louis Lareng — Chronologie</title>
+  <meta name="description" content="Chronologie 3D — Musée Louis Lareng" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chronologie.css">
+</head>
+<body>
+  <div id="uiTop">
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="Rechercher un mot-clé..." aria-label="Recherche événements">
+      <select id="filterSelect" aria-label="Filtrer par type">
+        <option value="all">Tous types</option>
+        <option value="interview">Interview</option>
+        <option value="documentaire">Documentaire</option>
+        <option value="publication">Publication</option>
+        <option value="photo">Photo</option>
+        <option value="reportage">Reportage</option>
+      </select>
+      <button id="playBtn" title="Lecture guidée">▶︎ Play</button>
+      <button id="stopBtn" title="Stop" style="display:none">■ Stop</button>
+    </div>
+  </div>
+
+  <div id="canvasWrap" aria-live="polite">
+    <canvas id="sceneCanvas" role="img" aria-label="Frise chronologique 3D"></canvas>
+    <img id="sceneFallback" src="tableau.jpg" alt="Fallback" />
+  </div>
+
+  <div id="detailOverlay" aria-hidden="true" role="dialog" aria-label="Détails de l'événement">
+    <div class="detailCard" role="document">
+      <button id="detailClose" class="closeBtn" aria-label="Fermer">✕</button>
+      <h2 id="detailTitle"></h2>
+      <p id="detailYear" class="muted"></p>
+      <p id="detailText"></p>
+      <video id="detailVideo" controls style="display:none; width:100%; border-radius:8px; margin-top:12px;"></video>
+    </div>
+  </div>
+
+  <div id="scrubBar">
+    <input id="scrubber" type="range" min="0" max="0" value="0" aria-label="Navigation chronologie">
+    <div id="scrubLabel">0 / 0</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="chronologie.js"></script>
+</body>
+</html>

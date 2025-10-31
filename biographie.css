@@ -1,0 +1,58 @@
+:root{
+  --bg: linear-gradient(180deg,#1e0f77,#042b2b);
+  --paper-start: #f9f6ee;
+  --paper-end:   #efe6d0;
+  --accent: #050505;
+  --ink: #083042;
+  --max-width: 860px;
+  --pad: 44px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:var(--bg);-webkit-font-smoothing:antialiased;color:var(--ink)}
+
+.parchment{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:18px;
+}
+
+.paper-inner{
+  width: min(92vw, var(--max-width));
+  height: 100vh;
+  background: linear-gradient(180deg,var(--paper-start),var(--paper-end));
+  border-radius: 12px;
+  box-shadow: 0 40px 120px rgba(2,8,18,0.6), inset 0 6px 18px rgba(0,0,0,0.04);
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--pad);
+  z-index: 10;
+  border: 6px solid rgba(6,80,60,0.06);
+}
+
+.title-block{ text-align:center; margin-bottom:18px }
+.title-block h1{ margin:0; font-family:'Playfair Display',serif; color:var(--accent); font-size:22px; letter-spacing:0.6px }
+.title-block .lead{ margin:8px 0 0; font-size:13px; color:#3f5a55 }
+
+.content{ max-width:760px; margin:0 auto; font-size:15px; line-height:1.6; color:var(--ink) }
+.section{ margin: 0 0 28px 0 }
+.section h2{ font-family:'Playfair Display',serif; color:var(--accent); font-size:16px; margin:0 0 8px 0 }
+.section p{ margin:0 0 10px 0 }
+
+.section figure{ margin:12px 0 }
+.section img{ width:100%; display:block; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12) }
+.section figcaption{ font-size:13px; color:#6b6b6b; margin-top:6px }
+
+.paper-inner::-webkit-scrollbar{ width:12px; }
+.paper-inner::-webkit-scrollbar-track{ background: rgba(0,0,0,0.04); border-radius:999px; margin:10px 0; }
+.paper-inner::-webkit-scrollbar-thumb{ background: linear-gradient(180deg,#d9cfae,#bfb396); border-radius:999px; border:3px solid rgba(255,255,255,0.08) }
+
+@media (max-width:900px){
+  :root{ --pad:28px; --max-width:92vw }
+  .title-block h1{ font-size:20px }
+}
+@media (max-width:560px){
+  :root{ --pad:18px }
+  .paper-inner{ width:96vw; border-radius:8px; padding:18px }
+  .content{ font-size:14px }
+}

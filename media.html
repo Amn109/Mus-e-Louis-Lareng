@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Musée Louis Lareng — Médias</title>
+  <meta name="description" content="Médias — Musée Louis Lareng (portes interactives)" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="media.css">
+</head>
+<body>
+  <div id="canvasWrap" aria-live="polite">
+    <canvas id="sceneCanvas" role="img" aria-label="Scène 3D du musée — Médias"></canvas>
+    <img id="sceneFallback" src="tableau.jpg" alt="Fallback" />
+  </div>
+
+  <div id="videoModal" class="video-modal" aria-hidden="true" role="dialog" aria-label="Lecteur vidéo">
+    <div class="video-panel" role="document">
+      <button id="videoClose" class="video-close" aria-label="Fermer la vidéo">✕</button>
+      <video id="mediaPlayer" controls playsinline webkit-playsinline></video>
+    </div>
+  </div>
+
+  <div id="quoteModal" class="quote-modal" aria-hidden="true" role="dialog" aria-label="Citation">
+    <div class="quote-panel" role="document">
+      <button id="quoteClose" class="quote-close" aria-label="Fermer la citation">✕</button>
+      <div id="quoteContent" class="quote-content"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="media.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+:root{
+  --bg:#002666;
+  --accent:#0fb5a0;
+  --card-w:1100px;
+  --ease:cubic-bezier(.2,.9,.3,1);
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  overflow:hidden;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+
+#bgDecor{
+  position:fixed; inset:0; z-index:0;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,0.03), transparent 8%),
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg, #003a72, var(--bg));
+  filter:saturate(1.05);
+}
+
+#planWrap{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  z-index:10; padding:36px;
+}
+
+#planContainer{
+  width:min(92vw, var(--card-w));
+  max-width:100%;
+  border-radius:12px;
+  padding:20px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+  transform-origin:center center;
+  transition: transform 820ms var(--ease), box-shadow 420ms var(--ease);
+  backdrop-filter: blur(6px);
+}
+
+#museumPlan{ width:100%; height:auto; display:block; }
+
+.room{ stroke:#cddbe1; stroke-width:2; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25)); }
+.title{ fill:#083042; font-weight:700; font-size:22px; font-family:Inter, sans-serif; }
+.room-label{ fill:#083042; font-size:18px; font-weight:600; font-family:Inter, sans-serif; }
+
+.hot{ cursor:pointer; }
+.hot:focus{ outline: 3px solid rgba(15,181,160,0.24); outline-offset:6px; }
+
+.room-highlight{
+  filter: drop-shadow(0 14px 20px rgba(11,86,75,0.24));
+  stroke:var(--accent);
+  transform-origin:center;
+  transform:scale(1.02);
+  transition: transform .22s ease;
+}
+
+#roomPanel{
+  position:fixed;
+  left:50%; top:14%;
+  transform:translateX(-50%) translateY(-8px) scale(.96);
+  z-index:40;
+  width:360px;
+  background:linear-gradient(180deg,#fff,#f7f6f3);
+  color:#052033;
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(2,8,18,0.6);
+  padding:16px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .26s var(--ease), transform .32s var(--ease);
+}
+#roomPanel[aria-hidden="false"]{
+  opacity:1;
+  transform:translateX(-50%) translateY(0) scale(1);
+  pointer-events:auto;
+}
+.rp-inner h3{ margin:0 0 6px 0; font-weight:700; color:#01323b; }
+.rp-inner p{ margin:0 0 12px 0; color:#2f5760; font-size:14px }
+.rp-actions{ display:flex; gap:8px; justify-content:flex-end; }
+.rp-actions button{
+  padding:8px 12px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
+}
+#rpOpen{
+  background: linear-gradient(180deg,#0fb5a0,#0b7b6b);
+  color:#fff;
+  box-shadow:0 8px 22px rgba(11,86,75,0.24);
+}
+#rpClose.ghost{ background:transparent; color:#03323a; border:1px solid rgba(3,50,58,0.06); }
+
+#help{
+  position:fixed; left:14px; bottom:14px;
+  background:rgba(255,255,255,0.06);
+  padding:10px 14px; border-radius:10px;
+  color:#eaf6f0; z-index:50; font-size:13px;
+}
+
+@media (max-width:900px){
+  #roomPanel{ width:320px; top:10% }
+  #planContainer{ padding:12px }
+}
+@media (max-width:560px){
+  #planContainer{ width:94vw }
+  #roomPanel{ width:90vw; left:50%; transform:translateX(-50%) translateY(10px) }
+}

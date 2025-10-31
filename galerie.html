@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galerie — Musée Louis Lareng</title>
+  <meta name="description" content="Galerie 3D — Musée Louis Lareng">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="galerie.css">
+</head>
+<body>
+  <div id="canvasWrap" aria-live="polite">
+    <canvas id="sceneCanvas" role="img" aria-label="Scène 3D de la galerie"></canvas>
+    <img id="sceneFallback" src="tableau.jpg" alt="Tableau - fallback" />
+  </div>
+
+  <img id="img_center" src="tableau.jpg" alt="" style="display:none">
+  <img id="img_left" src="tableau_left.jpg" alt="" style="display:none">
+  <img id="img_right" src="tableau_right.jpg" alt="" style="display:none">
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+  <script src="galerie.js"></script>
+</body>
+</html>
